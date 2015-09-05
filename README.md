@@ -1,7 +1,9 @@
-# Welcome!
+# welcome!
 
-This is a starter gulp project providing the following features:
+this is a starter gulp project providing the following features:
 
-* Pre-process SCSS, minify and concatenate css, move to dist/css
-* Move index.html to dist/index.html
-* Minify and concatenate js, move to dist/js
+* pre-process scss, minify and concatenate css, move to dist/css
+* index.html to dist/index.html
+* minify and concatenate js, move to dist/js
+* browser-sync working with expressjs
+* expressjs Web server
