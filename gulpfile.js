@@ -4,9 +4,10 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     minifycss = require('gulp-minify-css'),
     minifyjs = require('gulp-uglify'),
-    browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
-    nodemon = require('gulp-nodemon')
+    nodemon = require('gulp-nodemon'),
+    browserSync = require('browser-sync'),
+    bower = require('gulp-bower')
 
 gulp.task('nodemon', function(cb) {
   var started = false
@@ -23,9 +24,22 @@ gulp.task('nodemon', function(cb) {
   })
 })
 
+gulp.task('bower', function() {
+  return bower('bower_components')
+    .pipe(gulp.dest('dist/lib'))
+})
+
 gulp.task('html', function() {
   return gulp.src('app/index.html')
     .pipe(gulp.dest('dist'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
+
+gulp.task('svg', function() {
+  return gulp.src('app/fonts/**/*.svg')
+    .pipe(gulp.dest('dist/fonts'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -65,8 +79,9 @@ gulp.task('browserSync', [ 'nodemon' ], function() {
   })
 })
 
-gulp.task('default', [ 'browserSync', 'sass', 'html', 'js' ], function() {
-  gulp.watch('app/scss/**/*.scss', ['sass'])
-  gulp.watch('app/index.html', ['html'])
-  gulp.watch('app/js/**/*.js', ['js'])
+gulp.task('default', [ 'bower', 'browserSync', 'sass', 'html', 'js', 'svg' ], function() {
+  gulp.watch('app/scss/**/*.scss', [ 'sass' ])
+  gulp.watch('app/index.html', [ 'html' ])
+  gulp.watch('app/js/**/*.js', [ 'js' ])
+  gulp.watch('app/fonts/**/*.svg', [ 'svg' ])
 })
