@@ -1,4 +1,33 @@
 body {
   background: grey;
-  width: percentage(5/7);
+}
+
+md-toolbar {
+  background-color: #4CAF50;
+}
+
+md-sidenav.md-sidenav-left {
+  background-color: #C8E6C9;
+  width: 225px;
+  min-width: 225px;
+}
+
+.logo {
+  margin: 0 .75rem;
+  height: 48px;
+  width: 36px;
+}
+
+.primary-nav {
+  padding: 0;
+}
+
+.primary-nav menu-link a {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+.parent-list-item.active {
+  background: rgba(158, 158, 158, 0.2);
 }
