@@ -1,1 +1,8 @@
-console.log('hello world')
+var app = angular.module('AngularMaterial', [ 'ngMaterial' ])
+
+app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+  $scope.toggleSidenav = function(menuId) {
+    $mdSidenav(menuId).toggle()
+  }
+
+}])
