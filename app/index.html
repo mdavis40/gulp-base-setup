@@ -1,19 +1,68 @@
 <!doctype html>
 
-<html>
+<html lang="en" ng-app="AngularMaterial">
   <head>
+    <title>Angular Material</title>
+    <link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
     <link href="css/app.min.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1" />
   </head>
-  <body>
-    <header>
-      <h1>Hello world!</h1>
-    </header>
-    <main>
+  <body layout="column" ng-controller="AppCtrl">
+    <md-toolbar layout="row">
+      <header class="md-toolbar-tools">
+        <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+          <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
+        </md-button>
+        <md-icon md-svg-src="fonts/icon.svg" class="logo"></md-icon>
+        <h1>Angular Material Design</h1>
+      </header>
+    </md-toolbar>
 
+    <main layout="row" flex>
+      <md-sidenav role="navigation" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+          <nav class="md-default-theme">
+            <ul class="primary-nav">
+              <li class="parent-list-item">
+                <menu-link section="section" class="ng-scope ng-isolate-scope">
+                  <a class="md-button md-default-theme" ng-href="#/welcome" tabindex="0" href="#/welcome">
+                    <span class="ng-binding ng-scope">
+                      Welcome
+                    </span>
+                    <div class="md-ripple-container"></div>
+                  </a>
+                </menu-link>
+              </li>
+              <li class="parent-list-item active">
+                <menu-link section="section" class="ng-scope ng-isolate-scope">
+                  <a class="md-button md-default-theme" class="active" ng-href="#/content" tabindex="0" href="#/content">
+                    <span class="ng-binding ng-scope">
+                      Content
+                    </span>
+                    <div class="md-ripple-container"></div>
+                  </a>
+                </menu-link>
+              </li>
+            </ul>
+          </nav>
+      </md-sidenav>
+
+      <section layout="column" flex id="content">
+        <md-content layout="column" flex class="md-padding">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </md-content>
+      </section>
     </main>
+
     <footer>
 
     </footer>
+
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.min.js"></script>
+    <script src="lib/angular-material/angular-material.min.js"></script>
 
     <script type="text/javascript" src="js/app.min.js"></script>
   </body>
