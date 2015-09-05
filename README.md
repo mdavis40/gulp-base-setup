@@ -7,3 +7,10 @@ this is a starter gulp project providing the following features:
 * minify and concatenate js, move to dist/js
 * browser-sync working with expressjs
 * expressjs Web server
+
+## get started?
+
+* clone repository
+* npm install
+* execute gulp
+  * modifying any server or client files should result in live reload of server and static resources
