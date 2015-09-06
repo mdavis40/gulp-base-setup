@@ -1,4 +1,4 @@
-var app = angular.module('AngularMaterial', [ 'ui.router', 'ngMaterial' ])
+var app = angular.module('AngularMaterial', [ 'ui.router', 'ngMaterial', 'ngMessages' ])
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/')
@@ -20,6 +20,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     $mdSidenav(menuId).toggle()
   }
 
-  $scope.name = 'Fred'
-  $scope.lastname = ''
+  $scope.firstname = 'Fred'
+  $scope.lastname = 'Flintstone'
 }])
