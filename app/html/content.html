@@ -1,0 +1,33 @@
+<md-card>
+  <md-card-content>
+    <span>hello {{name}}!</span>
+    <span ng-if="lastname">your last name is: {{lastname}}.</span>
+  </md-card-content>
+</md-card>
+<md-card>
+<form name="profile-form"  md-layoutpadding>
+  <md-toolbar>
+    <h3 class="md-toolbar-tools">
+      What is your name?
+    </h3>
+  </md-toolbar>
+  <div layout>
+    <md-input-container flex class="md-default-theme">
+      <label for="name">first name</label>
+      <input md-maxlength="30" required="" name="name" ng-model="name" id="name" ng-trim="true">
+      <div ng-messages="profile-form.name.$error" aria-live="assertive">
+        <!-- ngMessage: required -->
+        <!-- ngMessage: md-maxlength -->
+      </div>
+    </md-input-container>
+    <md-input-container flex class="md-default-theme">
+      <label for="lastname">last name</label>
+      <input md-maxlength="45" required="" id="lastname" name="lastname" ng-model="lastname" ng-trim="true">
+      <div ng-messages="profile-form.lastname.$error" aria-live="assertive">
+        <!-- ngMessage: required -->
+        <!-- ngMessage: md-maxlength -->
+      </div>
+    </md-input-container>
+  </div>
+</form>
+</md-card>
