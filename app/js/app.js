@@ -11,7 +11,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     })
     .state('/content', {
       url: '/content',
-      template: '<md-card><md-card-content>{{name}}</md-card-content></md-card><md-card><md-card-content>{{place}}</md-card-content></md-card>',
+      templateUrl: 'html/content.html',
       controller: 'AppCtrl'
     })
 }])
@@ -21,5 +21,5 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
   }
 
   $scope.name = 'Fred'
-  $scope.place ='Phx'
+  $scope.lastname = ''
 }])
