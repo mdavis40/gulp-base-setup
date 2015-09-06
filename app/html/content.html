@@ -1,11 +1,11 @@
 <md-card>
   <md-card-content>
-    <span>hello {{name}}!</span>
+    <span>hello {{firstname}}!</span>
     <span ng-if="lastname">your last name is: {{lastname}}.</span>
   </md-card-content>
 </md-card>
 <md-card>
-<form name="profile-form"  md-layoutpadding>
+<form name="profile" md-layoutpadding novalidate>
   <md-toolbar>
     <h3 class="md-toolbar-tools">
       What is your name?
@@ -13,20 +13,22 @@
   </md-toolbar>
   <div layout>
     <md-input-container flex class="md-default-theme">
-      <label for="name">first name</label>
-      <input md-maxlength="30" required="" name="name" ng-model="name" id="name" ng-trim="true">
-      <div ng-messages="profile-form.name.$error" aria-live="assertive">
-        <!-- ngMessage: required -->
-        <!-- ngMessage: md-maxlength -->
-      </div>
+      <label for="firstname">first name</label>
+      <input md-maxlength="30" required name="firstname" ng-model="firstname" id="firstname" ng-trim="true">
+
+      <ng-messages for="profile.firstname.$error" role="alert">
+        <ng-message when="required">you need to provide a first name.</ng-message>
+        <ng-message when="maxlength">your first name isn't that long</ng-message>
+      </ng-messages>
     </md-input-container>
     <md-input-container flex class="md-default-theme">
       <label for="lastname">last name</label>
-      <input md-maxlength="45" required="" id="lastname" name="lastname" ng-model="lastname" ng-trim="true">
-      <div ng-messages="profile-form.lastname.$error" aria-live="assertive">
-        <!-- ngMessage: required -->
-        <!-- ngMessage: md-maxlength -->
-      </div>
+      <input md-maxlength="45" required id="lastname" name="lastname" ng-model="lastname" ng-trim="true">
+
+      <ng-messages for="profile.lastname.$error" role="alert">
+        <ng-message when="required">you need to provide a last name.</ng-message>
+        <ng-message when="md-maxlength">your last name isn't that long</ng-message>
+      </ng-messages>
     </md-input-container>
   </div>
 </form>
