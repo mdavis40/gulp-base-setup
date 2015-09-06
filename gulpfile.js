@@ -29,9 +29,17 @@ gulp.task('bower', function() {
     .pipe(gulp.dest('dist/lib'))
 })
 
-gulp.task('html', function() {
+gulp.task('index', function() {
   return gulp.src('app/index.html')
     .pipe(gulp.dest('dist'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
+
+gulp.task('templates', function() {
+  return gulp.src('app/html/**/*.html')
+    .pipe(gulp.dest('dist/html'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -79,9 +87,10 @@ gulp.task('browserSync', [ 'nodemon' ], function() {
   })
 })
 
-gulp.task('default', [ 'bower', 'browserSync', 'sass', 'html', 'js', 'svg' ], function() {
+gulp.task('default', [ 'bower', 'browserSync', 'sass', 'index', 'templates', 'js', 'svg' ], function() {
   gulp.watch('app/scss/**/*.scss', [ 'sass' ])
-  gulp.watch('app/index.html', [ 'html' ])
+  gulp.watch('app/index.html', [ 'index' ])
+  gulp.watch('app/html/**/*.html', [ 'templates' ])
   gulp.watch('app/js/**/*.js', [ 'js' ])
   gulp.watch('app/fonts/**/*.svg', [ 'svg' ])
 })
